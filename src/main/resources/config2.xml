@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean class="com.pm.Temp" name="tref2">
+        <constructor-arg value="1"/>
+    </bean>
+
+    <bean class="com.pm.Person" name="person" init-method="init" destroy-method="destroy">
+       <constructor-arg value="1"/>
+        <constructor-arg value="mim"/>
+        <constructor-arg>
+            <list>
+                <value>1</value>
+                <value>2</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg>
+            <set>
+                <value>1</value>
+                <value>2</value>
+            </set>
+        </constructor-arg>
+        <constructor-arg>
+            <map>
+                <entry key="java1" value="1"/>
+                <entry key="java2" value="2"/>
+            </map>
+        </constructor-arg>
+        <constructor-arg ref="tref2"/>
+    </bean>
+
+</beans>
